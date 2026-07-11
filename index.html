@@ -195,6 +195,8 @@ if (!r.ok) throw new Error(data.error || "Falló el análisis.");
       document.getElementById("verdict").textContent = data.veredicto || "";
       fill("funciona", data.funciona);
       fill("cambiar", data.cambiar);
+      document.querySelector(".block.f").style.display = (data.funciona || []).length ? "block" : "none";
+      document.querySelector(".block.c").style.display = (data.cambiar || []).length ? "block" : "none";
       result.style.display = "block";
     } catch (e) {
       err.textContent = e.message;
