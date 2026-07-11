@@ -144,17 +144,28 @@
   let imageData = null, mediaType = null;
 
   fileEl.addEventListener("change", (e) => {
-    const f = e.target.files[0];
-    if (!f) return;
-    mediaType = f.type;
-    const reader = new FileReader();
-    reader.onload = () => {
-      imageData = reader.result.split(",")[1];
-      drop.innerHTML = `<img src="${reader.result}" alt="tu look" />`;
+  const f = e.target.files[0];
+  if (!f) return;
+  const reader = new FileReader();
+  reader.onload = () => {
+    const img = new Image();
+    img.onload = () => {
+      const max = 1200;
+      const scale = Math.min(1, max / Math.max(img.width, img.height));
+      const c = document.createElement("canvas");
+      c.width = Math.round(img.width * scale);
+      c.height = Math.round(img.height * scale);
+      c.getContext("2d").drawImage(img, 0, 0, c.width, c.height);
+      const jpeg = c.toDataURL("image/jpeg", 0.8);
+      imageData = jpeg.split(",")[1];
+      mediaType = "image/jpeg";
+      drop.innerHTML = `<img src="${jpeg}" alt="tu look" />`;
       go.disabled = false;
     };
-    reader.readAsDataURL(f);
-  });
+    img.src = reader.result;
+  };
+  reader.readAsDataURL(f);
+});
 
   go.addEventListener("click", async () => {
     if (!imageData) return;
@@ -173,8 +184,11 @@
           occasion: document.getElementById("occ").value,
         }),
       });
-      const data = await r.json();
-      if (!r.ok) throw new Error(data.error || "Falló el análisis.");
+      const raw = await r.text();
+let data;
+try { data = JSON.parse(raw); }
+catch { throw new Error("El servidor no respondió bien (" + r.status + ")"); }
+if (!r.ok) throw new Error(data.error || "Falló el análisis.");
 
       document.getElementById("score").textContent = data.score;
       document.getElementById("desc").textContent = data.descripcion || "";
