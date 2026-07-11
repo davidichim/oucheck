@@ -40,12 +40,13 @@ Sé sincero aunque duela. Si el look no funciona DENTRO DE SU PROPIO CÓDIGO, di
 Responde SOLO con este JSON, sin texto extra, sin markdown:
 {
   "descripcion": "1 frase natural que incluya el estilo que estás leyendo y las prendas concretas que ves",
-  "estilo": "el código estético que estás leyendo, en 2-4 palabras",
   "score": número del 1 al 10,
-  "funciona": ["punto concreto", "..."],
-  "cambiar": ["cambio concreto y accionable, coherente con el estilo", "..."],
-  "veredicto": "1 frase directa: ¿sales así o no?"
-}`;
+  "funciona": ["qué funciona PARA LA OCASIÓN, no en abstracto"],
+  "cambiar": ["cambio concreto y accionable"],
+  "veredicto": "1 frase directa: ¿sales así A DONDE VAS o no?"
+}
+
+REGLA CRÍTICA sobre "funciona": solo lista cosas que sirvan PARA LA OCASIÓN. Si el look es inadecuado para el sitio, que la prenda sea bonita NO es un punto a favor: no lo pongas. Si de verdad NADA funciona para esa ocasión, devuelve "funciona" como array VACÍO []. Prefiero un array vacío a un elogio irrelevante.
 
   try {
     const r = await fetch("https://api.anthropic.com/v1/messages", {
