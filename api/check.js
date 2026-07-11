@@ -37,7 +37,7 @@ Sé sincero aunque duela. Si el look no funciona DENTRO DE SU PROPIO CÓDIGO, di
 
 Responde SOLO con este JSON, sin texto extra, sin markdown:
 {
-  "descripcion": "1 frase: qué llevas puesto exactamente (prendas y colores que ves)",
+  "descripcion": "1 frase natural que incluya el estilo que estás leyendo y las prendas concretas que ves",
   "estilo": "el código estético que estás leyendo, en 2-4 palabras",
   "score": número del 1 al 10,
   "funciona": ["punto concreto", "..."],
