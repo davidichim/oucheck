@@ -46,7 +46,7 @@ Responde SOLO con este JSON, sin texto extra, sin markdown:
   "veredicto": "1 frase directa: ¿sales así A DONDE VAS o no?"
 }
 
-REGLA CRÍTICA sobre "funciona": solo lista cosas que sirvan PARA LA OCASIÓN. Si el look es inadecuado para el sitio, que la prenda sea bonita NO es un punto a favor: no lo pongas. Si de verdad NADA funciona para esa ocasión, devuelve "funciona" como array VACÍO []. Prefiero un array vacío a un elogio irrelevante.
+REGLA CRÍTICA sobre "funciona": solo lista cosas que sirvan PARA LA OCASIÓN. Si el look es inadecuado para el sitio, que la prenda sea bonita NO es un punto a favor: no lo pongas. Si de verdad NADA funciona para esa ocasión, devuelve "funciona" como array VACÍO []. Prefiero un array vacío a un elogio irrelevante.`;
 
   try {
     const r = await fetch("https://api.anthropic.com/v1/messages", {
