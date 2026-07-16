@@ -6,15 +6,25 @@
 <title>Oucheck</title>
 <style>
   :root {
-    --bg: #0c0b10;
-    --card: #17151f;
-    --line: #2a2733;
-    --ink: #f3f1f7;
-    --muted: #9b96a8;
-    --accent: #c6ff4a;      /* verde ácido, señal de "listo, sal" */
-    --warn: #ff7a59;
-    --ok: #c6ff4a;
-  }
+  /* Fondo y superficies */
+  --bg:        #FFF9F4;   /* crema cálido, no blanco frío */
+  --card:      #FFFFFF;   /* tarjetas del veredicto */
+  --border:    #F2E4D8;   /* bordes suaves */
+
+  /* Texto */
+  --text:      #2B2118;   /* marrón casi negro, más cálido que #000 */
+  --muted:     #9A8778;   /* texto secundario */
+
+  /* Acento principal (botones, puntuación) */
+  --accent:      #FF6B4A;   /* coral vibrante */
+  --accent-dark: #E8502F;   /* para hover/pressed */
+
+  /* Bloques de veredicto */
+  --ok:      #E9F7EF;   /* fondo "lo que funciona" */
+  --ok-text: #1E8E5A;   /* verde cálido */
+  --warn:      #FFF0E6;   /* fondo "lo que cambiaría" */
+  --warn-text: #D9622B;   /* terracota, no rojo agresivo */
+}
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
     background: var(--bg); color: var(--ink);
